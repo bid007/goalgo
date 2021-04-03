@@ -9,11 +9,15 @@ import (
 
 func TestStack(t *testing.T) {
 	s := New(5)
-	s.Push(1)
-	s.Push(2)
-	s.Push(3)
-	elem, _ := s.Pop()
-	assert.Equal(t, 3, elem)
+
+	for _, val := range []int{1, 2, 3} {
+		s.Push(val)
+	}
+
+	for _, val := range []int{3, 2, 1} {
+		elem, _ := s.Pop()
+		assert.Equal(t, val, elem)
+	}
 }
 
 func TestStackEmptyPop(t *testing.T) {
